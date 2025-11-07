@@ -39,7 +39,7 @@ body{
 
 
 .main_style {
-  background: linear-gradient(135deg, rgb(2, 2, 37) 0%, rgb(15, 2, 45) 50%, rgb(2, 2, 37) 100%);
+  /* Background gradient will be applied dynamically via JavaScript */
 }
 a{
     color: var(--TextColor);
@@ -58,14 +58,15 @@ a{
 .button {
   background: linear-gradient(135deg, rgba(50, 50, 100, 0.3), rgba(30, 30, 70, 0.3));
   color: var(--TextColor);
-  width: 100px;
+  width: 120px;
   margin-bottom: 5px;
   cursor: pointer;
   border: 1px solid rgba(101, 101, 200, 0.4);
-  padding: 8px;
+  padding: 10px;
   border-radius: 6px;
   transition: all 0.3s ease;
   font-size: 0.9em;
+  text-align: center;
 }
 
 .button:hover {
