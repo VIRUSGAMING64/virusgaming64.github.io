@@ -2,10 +2,11 @@ name: Update Repository Statistics
 
 on:
   schedule:
-    # Runs at 5:40 PM Cuba time (Cuba is UTC-4/UTC-5)
-    # 5:40 PM Cuba time = 9:40 PM UTC (during standard time)
-    # Using 21:40 UTC to approximate Cuba time
-    - cron: '40 21 * * *'
+    # Runs at 5:40 PM Cuba time
+    # Cuba Standard Time is UTC-5, so 5:40 PM CST = 10:40 PM UTC (22:40 UTC)
+    # Cuba Daylight Time is UTC-4, so 5:40 PM CDT = 9:40 PM UTC (21:40 UTC)
+    # Using 22:40 UTC for standard time (Nov-Mar) - adjust if needed
+    - cron: '40 22 * * *'
   workflow_dispatch: # Allows manual trigger
 
 permissions:
