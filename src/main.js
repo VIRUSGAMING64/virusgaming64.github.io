@@ -50,14 +50,14 @@ function displayRepositories(data) {
     // Display last updated time
     if (lastUpdated && data.last_updated) {
         const date = new Date(data.last_updated);
-        lastUpdated.textContent = `Last updated: ${date.toLocaleString()}`;
+        lastUpdated.textContent = `⏰ Last updated: ${date.toLocaleString()}`;
     }
     
     // Clear existing content
     repoList.innerHTML = '';
     
     if (!data.repositories || data.repositories.length === 0) {
-        repoList.innerHTML = '<p class="info-text">No repositories found. Statistics will be updated soon.</p>';
+        repoList.innerHTML = '<p class="info-text">📭 No repositories found. Statistics will be updated soon.</p>';
         return;
     }
     
@@ -71,20 +71,20 @@ function displayRepositories(data) {
         const repoLink = document.createElement('a');
         repoLink.href = repo.url;
         repoLink.target = '_blank';
-        repoLink.textContent = repo.name;
+        repoLink.textContent = `📦 ${repo.name}`;
         repoName.appendChild(repoLink);
         
         const repoDesc = document.createElement('p');
         repoDesc.className = 'repo-description';
-        repoDesc.textContent = repo.description || 'No description';
+        repoDesc.textContent = repo.description || '📝 No description';
         
         const repoSize = document.createElement('p');
         repoSize.className = 'repo-size';
-        repoSize.textContent = `Size: ${repo.size_formatted}`;
+        repoSize.textContent = `💾 Size: ${repo.size_formatted}`;
         
         const repoMeta = document.createElement('div');
         repoMeta.className = 'repo-meta';
-        repoMeta.innerHTML = `★ ${repo.stars} | Forks: ${repo.forks}`;
+        repoMeta.innerHTML = `⭐ ${repo.stars} | 🍴 Forks: ${repo.forks}`;
         
         // Language breakdown
         const langDiv = document.createElement('div');
@@ -95,7 +95,7 @@ function displayRepositories(data) {
                 .sort((a, b) => b[1] - a[1])
                 .map(([lang, pct]) => `${lang}: ${pct}%`)
                 .join(' | ');
-            langDiv.textContent = `Languages: ${langList}`;
+            langDiv.textContent = `💻 Languages: ${langList}`;
         }
         
         repoCard.appendChild(repoName);
@@ -119,14 +119,14 @@ function displayLanguageStats(data) {
     languageStats.innerHTML = '';
     
     if (!data.overall_languages || Object.keys(data.overall_languages).length === 0) {
-        languageStats.innerHTML = '<p class="info-text">No language statistics available yet.</p>';
+        languageStats.innerHTML = '<p class="info-text">📊 No language statistics available yet.</p>';
         return;
     }
     
     // Create overall statistics summary
     const summary = document.createElement('div');
     summary.className = 'language-summary';
-    summary.innerHTML = `<p class="info-text">Total repositories analyzed: ${data.total_repositories}</p>`;
+    summary.innerHTML = `<p class="info-text">📚 Total repositories analyzed: ${data.total_repositories}</p>`;
     languageStats.appendChild(summary);
     
     // Create language bars
@@ -141,7 +141,7 @@ function displayLanguageStats(data) {
             
             const langName = document.createElement('div');
             langName.className = 'language-name';
-            langName.textContent = language;
+            langName.textContent = `💻 ${language}`;
             
             const langBarContainer = document.createElement('div');
             langBarContainer.className = 'language-bar-container';
@@ -166,41 +166,152 @@ function displayLanguageStats(data) {
 }
 
 class Node{
-    constructor (id){
-        this.x = Math.round((Math.random()*10));
-        this.y = Math.round((Math.random()*10));
+    constructor (id, canvasWidth, canvasHeight){
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
         this.id = id;
         this.connections = [];
+        this.radius = 3;
     }
 
+    update(canvasWidth, canvasHeight) {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        if (this.x < 0 || this.x > canvasWidth) this.vx *= -1;
+        if (this.y < 0 || this.y > canvasHeight) this.vy *= -1;
+        
+        this.x = Math.max(0, Math.min(canvasWidth, this.x));
+        this.y = Math.max(0, Math.min(canvasHeight, this.y));
+    }
+
+    draw(ctx) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(150, 150, 255, 0.8)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(200, 200, 255, 0.6)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
 }
 
 
-function GenerateGraph(){
-    var positions = new Set()
-    var gradient = 20;
-    var total = Math.round((Math.random()*gradient)),nodes = []
-    if(total < 2)total = 2;
+function GenerateGraph(canvasWidth, canvasHeight){
+    var total = Math.floor(20 + Math.random() * 15);
+    var nodes = [];
+    
     for(var i = 0; i < total; i++){
-        var le = [positions.size][0];
-        var node = new Node(i);
-        positions.add([node.x,node.y]);
-        if(positions.size == le){
-            i--;
-            continue;
-        }
+        var node = new Node(i, canvasWidth, canvasHeight);
         nodes.push(node);
     }
-    for(var i = 0; i < total*2; i++){
-        var a = Math.round((Math.random()*gradient))
-        var b = Math.round((Math.random()*gradient))
-        if(a >= total || b >= total || a == b){
-            i--;
-            continue;
+    
+    for(var i = 0; i < total * 1.5; i++){
+        var a = Math.floor(Math.random() * total);
+        var b = Math.floor(Math.random() * total);
+        if(a !== b && !nodes[a].connections.includes(b)){
+            nodes[a].connections.push(b);
         }
-        nodes[a].connections.push(nodes[b].id);
     }
     return nodes;
 }
 
-console.log(GenerateGraph());
+var graphCanvas, graphCtx, graphNodes;
+var edgesToRemove = [];
+
+function initGraph() {
+    graphCanvas = document.getElementById('graph-canvas');
+    if (!graphCanvas) return;
+    
+    graphCtx = graphCanvas.getContext('2d');
+    resizeCanvas();
+    
+    graphNodes = GenerateGraph(graphCanvas.width, graphCanvas.height);
+    
+    window.addEventListener('resize', resizeCanvas);
+    
+    animateGraph();
+    
+    // Remove edges periodically
+    setInterval(removeRandomEdges, 2000);
+}
+
+function resizeCanvas() {
+    if (!graphCanvas) return;
+    graphCanvas.width = window.innerWidth;
+    graphCanvas.height = window.innerHeight;
+}
+
+function removeRandomEdges() {
+    if (!graphNodes || graphNodes.length === 0) return;
+    
+    // Find all edges
+    let allEdges = [];
+    graphNodes.forEach(node => {
+        node.connections.forEach(targetId => {
+            allEdges.push({ from: node.id, to: targetId });
+        });
+    });
+    
+    if (allEdges.length === 0) return;
+    
+    // Remove 1-3 random edges
+    const numToRemove = Math.min(1 + Math.floor(Math.random() * 3), allEdges.length);
+    for (let i = 0; i < numToRemove; i++) {
+        const edgeIndex = Math.floor(Math.random() * allEdges.length);
+        const edge = allEdges[edgeIndex];
+        
+        const node = graphNodes[edge.from];
+        const connIndex = node.connections.indexOf(edge.to);
+        if (connIndex > -1) {
+            node.connections.splice(connIndex, 1);
+            edgesToRemove.push({ edge, timestamp: Date.now() });
+        }
+        
+        allEdges.splice(edgeIndex, 1);
+    }
+    
+    // Add new edges to maintain connectivity
+    setTimeout(() => {
+        for (let i = 0; i < numToRemove; i++) {
+            const a = Math.floor(Math.random() * graphNodes.length);
+            const b = Math.floor(Math.random() * graphNodes.length);
+            if (a !== b && !graphNodes[a].connections.includes(b)) {
+                graphNodes[a].connections.push(b);
+            }
+        }
+    }, 1000);
+}
+
+function animateGraph() {
+    if (!graphCanvas || !graphCtx || !graphNodes) return;
+    
+    graphCtx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+    
+    // Update and draw edges
+    graphNodes.forEach(node => {
+        node.connections.forEach(targetId => {
+            const target = graphNodes[targetId];
+            if (target) {
+                graphCtx.beginPath();
+                graphCtx.moveTo(node.x, node.y);
+                graphCtx.lineTo(target.x, target.y);
+                graphCtx.strokeStyle = 'rgba(100, 100, 200, 0.3)';
+                graphCtx.lineWidth = 1;
+                graphCtx.stroke();
+            }
+        });
+    });
+    
+    // Update and draw nodes
+    graphNodes.forEach(node => {
+        node.update(graphCanvas.width, graphCanvas.height);
+        node.draw(graphCtx);
+    });
+    
+    requestAnimationFrame(animateGraph);
+}
+
+console.log("Graph system initialized");

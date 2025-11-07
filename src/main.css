@@ -10,21 +10,36 @@ body{
     margin: 0;
     padding: 0;
     height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#graph-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.4;
 }
 
 .menu{
   margin: 10px;
 }
 .SideBar{
-    background-color: rgba(0, 0, 0, 0.259);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
     border-right: 1px solid;
-    border-right-color: rgba(101, 101, 101, 0.259);
-    min-width: 100px;
+    border-right-color: rgba(101, 101, 101, 0.4);
+    min-width: 120px;
+    position: relative;
+    z-index: 1;
 }
 
 
 .main_style {
-  background-color: rgb(2, 2, 37);
+  background: linear-gradient(135deg, rgb(2, 2, 37) 0%, rgb(15, 2, 45) 50%, rgb(2, 2, 37) 100%);
 }
 a{
     color: var(--TextColor);
@@ -41,22 +56,30 @@ a{
   transition: 500ms;
 }
 .button {
-  background-color: rgb(2, 2, 37);
+  background: linear-gradient(135deg, rgba(50, 50, 100, 0.3), rgba(30, 30, 70, 0.3));
   color: var(--TextColor);
-  width: 70px;
+  width: 100px;
   margin-bottom: 5px;
   cursor: pointer;
-  border: 1px solid rgba(101, 101, 101, 0.259);
-  padding: 5px;
+  border: 1px solid rgba(101, 101, 200, 0.4);
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
 }
 
 .button:hover {
-  background-color: rgba(50, 50, 100, 0.5);
+  background: linear-gradient(135deg, rgba(80, 80, 150, 0.5), rgba(50, 50, 100, 0.5));
+  border-color: rgba(120, 120, 220, 0.6);
+  transform: translateX(5px);
+  box-shadow: 0 2px 10px rgba(100, 100, 200, 0.3);
 }
 
 .flex{
     display: flex;
     height: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .content-area {
@@ -64,6 +87,8 @@ a{
   padding: 20px;
   overflow-y: auto;
   color: var(--TextColor);
+  position: relative;
+  z-index: 1;
 }
 
 .tab-content {
@@ -97,17 +122,19 @@ a{
 }
 
 .repo-card {
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(101, 101, 101, 0.4);
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(20, 20, 50, 0.3));
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(101, 101, 200, 0.4);
+  border-radius: 12px;
   padding: 15px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
 }
 
 .repo-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  border-color: rgba(101, 101, 200, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(100, 100, 200, 0.4);
+  border-color: rgba(150, 150, 255, 0.6);
+  background: linear-gradient(135deg, rgba(20, 20, 50, 0.5), rgba(40, 40, 80, 0.4));
 }
 
 .repo-name {

@@ -7,19 +7,20 @@
     <script src="src/main.js"></script>
     <link rel="stylesheet" href="src/main.css">
 </head>
-<body class="main_style" onload="loadRepoStats()">
+<body class="main_style" onload="loadRepoStats(); initGraph();">
+    <canvas id="graph-canvas"></canvas>
     <div class="flex">
         <div class="SideBar">
             <div class="menu">
-                <button onclick="show('t1')" class="button">projects</button>
+                <button onclick="show('t1')" class="button">📁 Projects</button>
                 <div class="hidden" id="t1">
                     <div onclick="show('vshell')" target="_blank">
-                        vshell
+                        🐚 vshell
                     </div>
                 </div>
                 
-                <button onclick="showTab('repos-tab')" class="button">repos</button>
-                <button onclick="showTab('languages-tab')" class="button">languages</button>
+                <button onclick="showTab('repos-tab')" class="button">📦 Repos</button>
+                <button onclick="showTab('languages-tab')" class="button">💻 Languages</button>
             </div>
         </div>
         <div class="content-area">
@@ -28,14 +29,14 @@
             
             <!-- Repository Statistics Tab -->
             <div id="repos-tab" class="tab-content hidden">
-                <h2>Repository Statistics</h2>
+                <h2>📊 Repository Statistics</h2>
                 <div id="last-updated" class="info-text"></div>
                 <div id="repo-list" class="repo-container"></div>
             </div>
             
             <!-- Language Statistics Tab -->
             <div id="languages-tab" class="tab-content hidden">
-                <h2>Programming Languages Overview</h2>
+                <h2>🌐 Programming Languages Overview</h2>
                 <div id="language-stats" class="language-container"></div>
             </div>
         </div>
