@@ -3,27 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VIRUSGAMING64 - GitHub Portfolio</title>
     <script src="src/main.js"></script>
     <link rel="stylesheet" href="src/main.css">
 </head>
-<body class="main_style">
+<body class="main_style" onload="loadRepoStats()">
     <div class="flex">
         <div class="SideBar">
             <div class="menu">
-                <button onclick="show('t1')" class = "button">projects</button>
-            <div class="hidden" id="t1">
-                
-                <div onclick="show('vshell')" target="_blank">
-                    vshell
+                <button onclick="show('t1')" class="button">projects</button>
+                <div class="hidden" id="t1">
+                    <div onclick="show('vshell')" target="_blank">
+                        vshell
+                    </div>
                 </div>
-
-            </div>
+                
+                <button onclick="showTab('repos-tab')" class="button">repos</button>
+                <button onclick="showTab('languages-tab')" class="button">languages</button>
             </div>
         </div>
-        <div>
+        <div class="content-area">
             <div id="vshell" class="hidden" onload="changeActual('vshell')">This is vshell</div>
             <div class="hidden">This website</div>
+            
+            <!-- Repository Statistics Tab -->
+            <div id="repos-tab" class="tab-content hidden">
+                <h2>Repository Statistics</h2>
+                <div id="last-updated" class="info-text"></div>
+                <div id="repo-list" class="repo-container"></div>
+            </div>
+            
+            <!-- Language Statistics Tab -->
+            <div id="languages-tab" class="tab-content hidden">
+                <h2>Programming Languages Overview</h2>
+                <div id="language-stats" class="language-container"></div>
+            </div>
         </div>
     </div>
 </body>
