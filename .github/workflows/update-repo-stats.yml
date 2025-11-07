@@ -1,6 +1,9 @@
 name: Update Repository Statistics
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Runs at 5:40 PM Cuba time
     # Cuba Standard Time is UTC-5, so 5:40 PM CST = 10:40 PM UTC (22:40 UTC)
