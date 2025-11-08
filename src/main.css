@@ -28,7 +28,8 @@ body{
   margin: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  width: max-content;
 }
 .SideBar{
     background-color: rgba(0, 0, 0, 0.4);
@@ -61,7 +62,7 @@ a{
 .button {
   background: linear-gradient(135deg, rgba(50, 50, 100, 0.3), rgba(30, 30, 70, 0.3));
   color: var(--TextColor);
-  width: auto;
+  width: 100%;
   margin-bottom: 5px;
   cursor: pointer;
   border: 1px solid rgba(101, 101, 200, 0.4);
@@ -327,11 +328,19 @@ a{
   text-align: center;
 }
 
+#repo-tabs-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .repo-button {
   background: linear-gradient(135deg, rgba(30, 50, 100, 0.4), rgba(20, 30, 70, 0.4));
   margin-top: 3px;
   padding: 6px 8px;
   font-size: 0.8em;
+  display: block;
+  width: 100%;
 }
 
 .repo-button:hover {
