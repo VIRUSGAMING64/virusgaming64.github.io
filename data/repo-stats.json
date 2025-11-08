@@ -1,11 +1,11 @@
 {
-  "last_updated": "2025-11-07T23:42:05.959197Z",
+  "last_updated": "2025-11-08T01:26:19.014952Z",
   "total_repositories": 7,
   "overall_languages": {
-    "Python": 68.89,
-    "HTML": 14.05,
-    "JavaScript": 11.73,
-    "CSS": 5.01,
+    "Python": 68.57,
+    "HTML": 13.44,
+    "JavaScript": 12.9,
+    "CSS": 4.76,
     "Shell": 0.33
   },
   "repositories": [
@@ -95,15 +95,15 @@
       "full_name": "VIRUSGAMING64/virusgaming64.github.io",
       "description": null,
       "url": "https://github.com/VIRUSGAMING64/virusgaming64.github.io",
-      "size_kb": 15,
-      "size_formatted": "15 KB",
+      "size_kb": 24,
+      "size_formatted": "24 KB",
       "languages": {
-        "JavaScript": 46.9,
-        "Python": 25.1,
-        "CSS": 19.51,
-        "HTML": 8.49
+        "JavaScript": 51.6,
+        "Python": 23.84,
+        "CSS": 18.52,
+        "HTML": 6.03
       },
-      "updated_at": "2025-11-07T23:41:51Z",
+      "updated_at": "2025-11-08T01:26:06Z",
       "created_at": "2025-08-17T03:07:09Z",
       "stars": 0,
       "forks": 0,
