@@ -65,6 +65,32 @@ def fetch_repository_languages(owner, repo_name, token):
         return {}
 
 
+def fetch_repository_readme(owner, repo_name, token):
+    """Fetch README content from a repository."""
+    headers = {
+        'Authorization': f'token {token}',
+        'Accept': 'application/vnd.github.v3+json'
+    }
+    
+    url = f'https://api.github.com/repos/{owner}/{repo_name}/readme'
+    
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        readme_data = response.json()
+        
+        # Get the download URL for the raw content
+        download_url = readme_data.get('download_url')
+        if download_url:
+            readme_response = requests.get(download_url)
+            readme_response.raise_for_status()
+            return readme_response.text
+        return None
+    except Exception as e:
+        print(f"No README found for {repo_name}: {e}")
+        return None
+
+
 def calculate_language_percentages(languages):
     """Calculate percentage for each language."""
     total_bytes = sum(languages.values())
@@ -106,6 +132,9 @@ def main():
         languages = fetch_repository_languages(username, repo['name'], token)
         language_percentages = calculate_language_percentages(languages)
         
+        # Fetch README content
+        readme_content = fetch_repository_readme(username, repo['name'], token)
+        
         repo_info = {
             'name': repo['name'],
             'full_name': repo['full_name'],
@@ -114,6 +143,7 @@ def main():
             'size_kb': repo['size'],
             'size_formatted': format_size(repo['size']),
             'languages': language_percentages,
+            'readme': readme_content,
             'updated_at': repo['updated_at'],
             'created_at': repo['created_at'],
             'stars': repo['stargazers_count'],
