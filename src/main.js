@@ -3,6 +3,9 @@ mode = false;
 var actual = null;
 var currentTab = null;
 var edgesGlowing = false;
+var glowIntensity = 0;
+var glowStartTime = 0;
+var isGlowingPhase = false;
 
 // Generate random gradient colors
 function generateRandomGradient() {
@@ -266,10 +269,7 @@ function initGraph() {
     
     // Make edges glow every 20 seconds
     setInterval(() => {
-        edgesGlowing = true;
-        setTimeout(() => {
-            edgesGlowing = false;
-        }, 1000); // Glow for 1 second
+        startGlowCycle();
     }, 20000);
 }
 
@@ -320,12 +320,52 @@ function removeRandomEdges() {
     }, 1000);
 }
 
+function startGlowCycle() {
+    isGlowingPhase = true;
+    glowStartTime = Date.now();
+}
+
+function updateGlowIntensity() {
+    if (!isGlowingPhase) {
+        glowIntensity = 0;
+        return;
+    }
+    
+    const elapsed = Date.now() - glowStartTime;
+    const fadeInDuration = 1000; // 1 second fade in
+    const stayDuration = 3000; // Stay lit for 3 seconds
+    const delayDuration = 1000; // 1 second delay before turning off
+    const fadeOutDuration = 500; // 0.5 second fade out
+    
+    if (elapsed < fadeInDuration) {
+        // Gradual fade in
+        glowIntensity = elapsed / fadeInDuration;
+    } else if (elapsed < fadeInDuration + stayDuration) {
+        // Stay fully lit
+        glowIntensity = 1.0;
+    } else if (elapsed < fadeInDuration + stayDuration + delayDuration) {
+        // Delay before turning off (stay at full intensity)
+        glowIntensity = 1.0;
+    } else if (elapsed < fadeInDuration + stayDuration + delayDuration + fadeOutDuration) {
+        // Fade out
+        const fadeOutElapsed = elapsed - (fadeInDuration + stayDuration + delayDuration);
+        glowIntensity = 1.0 - (fadeOutElapsed / fadeOutDuration);
+    } else {
+        // Completely off
+        glowIntensity = 0;
+        isGlowingPhase = false;
+    }
+}
+
 function animateGraph() {
     if (!graphCanvas || !graphCtx || !graphNodes) return;
     
+    // Update glow intensity
+    updateGlowIntensity();
+    
     graphCtx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
     
-    // Update and draw edges with glow effect
+    // Update and draw edges with gradual glow effect
     graphNodes.forEach(node => {
         node.connections.forEach(targetId => {
             const target = graphNodes[targetId];
@@ -334,12 +374,13 @@ function animateGraph() {
                 graphCtx.moveTo(node.x, node.y);
                 graphCtx.lineTo(target.x, target.y);
                 
-                if (edgesGlowing) {
-                    // Glowing edges
-                    graphCtx.strokeStyle = 'rgba(200, 200, 255, 0.9)';
-                    graphCtx.lineWidth = 2;
-                    graphCtx.shadowBlur = 10;
-                    graphCtx.shadowColor = 'rgba(150, 150, 255, 0.8)';
+                if (glowIntensity > 0) {
+                    // Glowing edges with gradual intensity
+                    const alpha = 0.3 + (0.6 * glowIntensity);
+                    graphCtx.strokeStyle = `rgba(200, 200, 255, ${alpha})`;
+                    graphCtx.lineWidth = 1 + (glowIntensity * 1.5);
+                    graphCtx.shadowBlur = glowIntensity * 15;
+                    graphCtx.shadowColor = `rgba(150, 150, 255, ${glowIntensity * 0.8})`;
                 } else {
                     // Normal edges
                     graphCtx.strokeStyle = 'rgba(100, 100, 200, 0.3)';
