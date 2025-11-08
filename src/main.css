@@ -26,6 +26,9 @@ body{
 
 .menu{
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 .SideBar{
     background-color: rgba(0, 0, 0, 0.4);
@@ -58,7 +61,7 @@ a{
 .button {
   background: linear-gradient(135deg, rgba(50, 50, 100, 0.3), rgba(30, 30, 70, 0.3));
   color: var(--TextColor);
-  width: 120px;
+  width: 100%;
   margin-bottom: 5px;
   cursor: pointer;
   border: 1px solid rgba(101, 101, 200, 0.4);
@@ -246,15 +249,13 @@ a{
   
   .menu {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px;
+    flex-direction: column;
+    align-items: stretch;
     margin: 10px 5px;
   }
   
   .button {
-    width: auto;
-    min-width: 100px;
+    width: 100%;
     padding: 8px 15px;
     font-size: 0.85em;
   }
@@ -495,7 +496,7 @@ a{
   }
   
   .button {
-    min-width: 80px;
+    width: 100%;
     padding: 6px 10px;
     font-size: 0.8em;
   }
