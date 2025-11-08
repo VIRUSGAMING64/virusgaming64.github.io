@@ -332,14 +332,32 @@ function generateIndividualRepoTabs(data) {
             const readmeTitle = document.createElement('h3');
             readmeTitle.textContent = '📖 README';
             const readmeContent = document.createElement('div');
-            readmeContent.className = 'repo-readme-content';
+            readmeContent.className = 'repo-readme-content markdown-body';
             
-            // Convert markdown to HTML or display as plain text
-            // For now, we'll display as formatted text
-            const readmePre = document.createElement('pre');
-            readmePre.className = 'repo-readme-text';
-            readmePre.textContent = repo.readme;
-            readmeContent.appendChild(readmePre);
+            // Convert markdown to HTML using marked library
+            if (typeof marked !== 'undefined') {
+                try {
+                    // Configure marked for GitHub-flavored markdown
+                    marked.setOptions({
+                        breaks: true,
+                        gfm: true
+                    });
+                    readmeContent.innerHTML = marked.parse(repo.readme);
+                } catch (error) {
+                    console.error('Error parsing markdown:', error);
+                    // Fallback to plain text if markdown parsing fails
+                    const readmePre = document.createElement('pre');
+                    readmePre.className = 'repo-readme-text';
+                    readmePre.textContent = repo.readme;
+                    readmeContent.appendChild(readmePre);
+                }
+            } else {
+                // Fallback if marked library is not loaded
+                const readmePre = document.createElement('pre');
+                readmePre.className = 'repo-readme-text';
+                readmePre.textContent = repo.readme;
+                readmeContent.appendChild(readmePre);
+            }
             
             readmeSection.appendChild(readmeTitle);
             readmeSection.appendChild(readmeContent);
