@@ -328,6 +328,8 @@ a{
 .repo-button {
   background: linear-gradient(135deg, rgba(30, 50, 100, 0.4), rgba(20, 30, 70, 0.4));
   margin-top: 3px;
+  padding: 6px 8px;
+  font-size: 0.8em;
 }
 
 .repo-button:hover {
@@ -483,6 +485,54 @@ a{
   .language-detail-name,
   .language-detail-percentage {
     font-size: 0.85em;
+  }
+}
+
+/* README Content Styling */
+.repo-readme-content {
+  margin-top: 10px;
+}
+
+.repo-readme-text {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(101, 101, 101, 0.3);
+  border-radius: 6px;
+  padding: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.repo-readme-text::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.repo-readme-text::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.repo-readme-text::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 200, 0.5);
+  border-radius: 4px;
+}
+
+.repo-readme-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 220, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .repo-readme-text {
+    font-size: 0.8em;
+    padding: 12px;
+    max-height: 400px;
   }
 }
 

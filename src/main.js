@@ -325,6 +325,27 @@ function generateIndividualRepoTabs(data) {
             repoDetails.appendChild(statsSection);
         }
         
+        // README Section
+        if (repo.readme) {
+            const readmeSection = document.createElement('div');
+            readmeSection.className = 'repo-detail-section';
+            const readmeTitle = document.createElement('h3');
+            readmeTitle.textContent = '📖 README';
+            const readmeContent = document.createElement('div');
+            readmeContent.className = 'repo-readme-content';
+            
+            // Convert markdown to HTML or display as plain text
+            // For now, we'll display as formatted text
+            const readmePre = document.createElement('pre');
+            readmePre.className = 'repo-readme-text';
+            readmePre.textContent = repo.readme;
+            readmeContent.appendChild(readmePre);
+            
+            readmeSection.appendChild(readmeTitle);
+            readmeSection.appendChild(readmeContent);
+            repoDetails.appendChild(readmeSection);
+        }
+        
         tabContent.appendChild(repoTitle);
         tabContent.appendChild(repoDetails);
         individualReposContainer.appendChild(tabContent);
