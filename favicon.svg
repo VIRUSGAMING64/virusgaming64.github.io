@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#1a1a2e" stroke="#16213e" stroke-width="2"/>
+  
+  <!-- V letter in gaming style -->
+  <path d="M 30 25 L 50 75 L 70 25" 
+        fill="none" 
+        stroke="#0f3460" 
+        stroke-width="8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <path d="M 32 25 L 50 70 L 68 25" 
+        fill="none" 
+        stroke="#e94560" 
+        stroke-width="6" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Inner highlight for depth -->
+  <path d="M 38 25 L 50 60 L 62 25" 
+        fill="none" 
+        stroke="#ff6b9d" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        opacity="0.6"/>
+</svg>
