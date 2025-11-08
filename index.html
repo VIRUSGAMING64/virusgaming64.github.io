@@ -12,21 +12,11 @@
     <div class="flex">
         <div class="SideBar">
             <div class="menu">
-                <button onclick="show('t1')" class="button">📁 Projects</button>
-                <div class="hidden" id="t1">
-                    <div onclick="show('vshell')" target="_blank">
-                        🐚 vshell
-                    </div>
-                </div>
-                
                 <button onclick="showTab('repos-tab')" class="button">📦 Repos</button>
                 <button onclick="showTab('languages-tab')" class="button">💻 Languages</button>
             </div>
         </div>
         <div class="content-area">
-            <div id="vshell" class="hidden" onload="changeActual('vshell')">This is vshell</div>
-            <div class="hidden">This website</div>
-            
             <!-- Repository Statistics Tab -->
             <div id="repos-tab" class="tab-content hidden">
                 <h2>📊 Repository Statistics</h2>

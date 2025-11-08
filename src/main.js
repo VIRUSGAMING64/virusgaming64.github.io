@@ -2,6 +2,30 @@ modes = [0, 50];
 mode = false;
 var actual = null;
 var currentTab = null;
+var edgesGlowing = false;
+
+// Generate random gradient colors
+function generateRandomGradient() {
+    const randomColor = () => {
+        const r = Math.floor(Math.random() * 100);
+        const g = Math.floor(Math.random() * 100);
+        const b = Math.floor(Math.random() * 150 + 50);
+        return `rgb(${r}, ${g}, ${b})`;
+    };
+    
+    const color1 = randomColor();
+    const color2 = randomColor();
+    const color3 = randomColor();
+    const angle = Math.floor(Math.random() * 360);
+    
+    return `linear-gradient(${angle}deg, ${color1} 0%, ${color2} 50%, ${color3} 100%)`;
+}
+
+// Apply random gradient to body
+function applyRandomGradient() {
+    const gradient = generateRandomGradient();
+    document.body.style.background = gradient;
+}
 
 
 function show(s) {
@@ -232,10 +256,21 @@ function initGraph() {
     
     window.addEventListener('resize', resizeCanvas);
     
+    // Apply random gradient on page load
+    applyRandomGradient();
+    
     animateGraph();
     
     // Remove edges periodically
     setInterval(removeRandomEdges, 2000);
+    
+    // Make edges glow every 20 seconds
+    setInterval(() => {
+        edgesGlowing = true;
+        setTimeout(() => {
+            edgesGlowing = false;
+        }, 1000); // Glow for 1 second
+    }, 20000);
 }
 
 function resizeCanvas() {
@@ -290,7 +325,7 @@ function animateGraph() {
     
     graphCtx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
     
-    // Update and draw edges
+    // Update and draw edges with glow effect
     graphNodes.forEach(node => {
         node.connections.forEach(targetId => {
             const target = graphNodes[targetId];
@@ -298,12 +333,27 @@ function animateGraph() {
                 graphCtx.beginPath();
                 graphCtx.moveTo(node.x, node.y);
                 graphCtx.lineTo(target.x, target.y);
-                graphCtx.strokeStyle = 'rgba(100, 100, 200, 0.3)';
-                graphCtx.lineWidth = 1;
+                
+                if (edgesGlowing) {
+                    // Glowing edges
+                    graphCtx.strokeStyle = 'rgba(200, 200, 255, 0.9)';
+                    graphCtx.lineWidth = 2;
+                    graphCtx.shadowBlur = 10;
+                    graphCtx.shadowColor = 'rgba(150, 150, 255, 0.8)';
+                } else {
+                    // Normal edges
+                    graphCtx.strokeStyle = 'rgba(100, 100, 200, 0.3)';
+                    graphCtx.lineWidth = 1;
+                    graphCtx.shadowBlur = 0;
+                }
+                
                 graphCtx.stroke();
             }
         });
     });
+    
+    // Reset shadow for nodes
+    graphCtx.shadowBlur = 0;
     
     // Update and draw nodes
     graphNodes.forEach(node => {
