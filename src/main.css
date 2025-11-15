@@ -508,6 +508,8 @@ a{
   padding: 15px;
   max-height: 600px;
   overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 /* Override GitHub markdown CSS to match our dark theme */
@@ -599,44 +601,17 @@ a{
   word-wrap: break-word;
   max-height: 500px;
   overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
+/* Hide scrollbar for webkit browsers */
 .repo-readme-content::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.repo-readme-content::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.repo-readme-content::-webkit-scrollbar-thumb {
-  background: rgba(100, 100, 200, 0.5);
-  border-radius: 4px;
-}
-
-.repo-readme-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(120, 120, 220, 0.7);
+  display: none;
 }
 
 .repo-readme-text::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.repo-readme-text::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.repo-readme-text::-webkit-scrollbar-thumb {
-  background: rgba(100, 100, 200, 0.5);
-  border-radius: 4px;
-}
-
-.repo-readme-text::-webkit-scrollbar-thumb:hover {
-  background: rgba(120, 120, 220, 0.7);
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
