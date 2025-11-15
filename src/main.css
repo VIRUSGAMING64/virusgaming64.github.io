@@ -506,10 +506,6 @@ a{
   border: 1px solid rgba(101, 101, 101, 0.3);
   border-radius: 6px;
   padding: 15px;
-  max-height: 600px;
-  overflow-y: auto;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 }
 
 /* Override GitHub markdown CSS to match our dark theme */
@@ -599,31 +595,18 @@ a{
   overflow-x: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
-  max-height: 500px;
-  overflow-y: auto;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 }
 
-/* Hide scrollbar for webkit browsers */
-.repo-readme-content::-webkit-scrollbar {
-  display: none;
-}
 
-.repo-readme-text::-webkit-scrollbar {
-  display: none;
-}
 
 @media screen and (max-width: 768px) {
   .repo-readme-content {
     padding: 12px;
-    max-height: 400px;
   }
   
   .repo-readme-text {
     font-size: 0.8em;
     padding: 12px;
-    max-height: 400px;
   }
 }
 
