@@ -396,9 +396,9 @@ class Node{
     draw(ctx) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(150, 150, 255, 0.8)';
+        ctx.fillStyle = 'rgba(200, 200, 255, 0.95)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(200, 200, 255, 0.6)';
+        ctx.strokeStyle = 'rgba(230, 230, 255, 0.85)';
         ctx.lineWidth = 1;
         ctx.stroke();
     }
