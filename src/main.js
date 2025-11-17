@@ -7,12 +7,12 @@ var glowIntensity = 0;
 var glowStartTime = 0;
 var isGlowingPhase = false;
 
-// Generate random gradient colors
+// Generate random gradient colors - Warp-style dark theme
 function generateRandomGradient() {
     const randomColor = () => {
-        const r = Math.floor(Math.random() * 100);
-        const g = Math.floor(Math.random() * 100);
-        const b = Math.floor(Math.random() * 150 + 50);
+        const r = Math.floor(Math.random() * 20 + 10); // 10-30
+        const g = Math.floor(Math.random() * 20 + 10); // 10-30
+        const b = Math.floor(Math.random() * 25 + 15); // 15-40
         return `rgb(${r}, ${g}, ${b})`;
     };
     
