@@ -36,17 +36,17 @@ class Node {
 
 // Generate a random graph with nodes and connections
 function GenerateGraph(canvasWidth, canvasHeight) {
-    var total = Math.floor(20 + Math.random() * 15);
-    var nodes = [];
+    const total = Math.floor(20 + Math.random() * 15);
+    const nodes = [];
     
-    for (var i = 0; i < total; i++) {
-        var node = new Node(i, canvasWidth, canvasHeight);
+    for (let i = 0; i < total; i++) {
+        const node = new Node(i, canvasWidth, canvasHeight);
         nodes.push(node);
     }
     
-    for (var i = 0; i < total * 1.5; i++) {
-        var a = Math.floor(Math.random() * total);
-        var b = Math.floor(Math.random() * total);
+    for (let i = 0; i < total * 1.5; i++) {
+        const a = Math.floor(Math.random() * total);
+        const b = Math.floor(Math.random() * total);
         if (a !== b && !nodes[a].connections.includes(b)) {
             nodes[a].connections.push(b);
         }
@@ -55,12 +55,11 @@ function GenerateGraph(canvasWidth, canvasHeight) {
 }
 
 // Graph state variables
-var graphCanvas, graphCtx, graphNodes;
-var edgesToRemove = [];
-var edgesGlowing = false;
-var glowIntensity = 0;
-var glowStartTime = 0;
-var isGlowingPhase = false;
+let graphCanvas, graphCtx, graphNodes;
+let edgesToRemove = [];
+let glowIntensity = 0;
+let glowStartTime = 0;
+let isGlowingPhase = false;
 
 // Initialize the graph visualization
 function initGraph() {

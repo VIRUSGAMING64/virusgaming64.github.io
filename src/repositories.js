@@ -70,6 +70,14 @@ function displayRepositories(data) {
     });
 }
 
+// Configure marked library for markdown rendering (done once)
+if (typeof marked !== 'undefined') {
+    marked.setOptions({
+        breaks: true,
+        gfm: true
+    });
+}
+
 // Generate individual repository tabs with detailed information
 function generateIndividualRepoTabs(data) {
     const repoTabsContainer = document.getElementById('repo-tabs-container');
@@ -215,11 +223,6 @@ function generateIndividualRepoTabs(data) {
             // Convert markdown to HTML using marked library
             if (typeof marked !== 'undefined') {
                 try {
-                    // Configure marked for GitHub-flavored markdown
-                    marked.setOptions({
-                        breaks: true,
-                        gfm: true
-                    });
                     readmeContent.innerHTML = marked.parse(repo.readme);
                 } catch (error) {
                     console.error('Error parsing markdown:', error);
