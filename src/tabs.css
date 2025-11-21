@@ -9,7 +9,7 @@
 
 .showed {
   height: auto;
-  overflow: showed;
+  overflow: visible;
   transition: 500ms;
 }
 
