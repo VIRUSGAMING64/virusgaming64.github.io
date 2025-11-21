@@ -1,0 +1,184 @@
+/* Mobile Responsive Design - Media Queries */
+
+@media screen and (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+  
+  .SideBar {
+    border-right: none;
+    border-bottom: 1px solid rgba(50, 50, 50, 0.6);
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 5px;
+  }
+  
+  .button {
+    width: auto;
+    padding: 8px 15px;
+    font-size: 0.85em;
+    white-space: nowrap;
+  }
+  
+  .content-area {
+    padding: 10px;
+    max-height: calc(100vh - 100px);
+  }
+  
+  .tab-content h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+  
+  .repo-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .repo-card {
+    padding: 12px;
+  }
+  
+  .repo-name {
+    font-size: 1.1em;
+  }
+  
+  .repo-description,
+  .repo-size,
+  .repo-meta,
+  .repo-languages {
+    font-size: 0.85em;
+  }
+  
+  .language-item {
+    grid-template-columns: 100px 1fr 50px;
+    gap: 10px;
+  }
+  
+  .language-name {
+    font-size: 0.85em;
+  }
+  
+  .language-bar-container {
+    height: 20px;
+  }
+  
+  .language-percentage {
+    font-size: 0.85em;
+  }
+  
+  .info-text {
+    font-size: 0.85em;
+  }
+
+  .repo-tabs-separator {
+    font-size: 0.7em;
+    margin: 15px 5px 8px 5px;
+  }
+  
+  .repo-detail-section {
+    padding: 15px;
+  }
+  
+  .repo-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .stat-item {
+    padding: 8px 12px;
+  }
+
+  .repo-readme-content {
+    padding: 12px;
+  }
+  
+  .repo-readme-text {
+    font-size: 0.8em;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content-area {
+    padding: 8px;
+  }
+  
+  .tab-content h2 {
+    font-size: 1.2em;
+  }
+  
+  .button {
+    width: auto;
+    padding: 6px 10px;
+    font-size: 0.8em;
+    white-space: nowrap;
+  }
+  
+  .repo-card {
+    padding: 10px;
+  }
+  
+  .repo-name {
+    font-size: 1em;
+  }
+  
+  .repo-description,
+  .repo-size,
+  .repo-meta,
+  .repo-languages {
+    font-size: 0.8em;
+  }
+  
+  .language-item {
+    grid-template-columns: 80px 1fr 45px;
+    gap: 8px;
+  }
+  
+  .language-name {
+    font-size: 0.8em;
+  }
+  
+  .language-bar-container {
+    height: 18px;
+  }
+  
+  .language-percentage {
+    font-size: 0.8em;
+  }
+
+  .repo-tabs-separator {
+    font-size: 0.65em;
+    margin: 10px 5px 5px 5px;
+  }
+  
+  .repo-detail-section {
+    padding: 12px;
+  }
+  
+  .repo-detail-section h3 {
+    font-size: 1em;
+    margin-bottom: 12px;
+  }
+  
+  .repo-detail-text {
+    font-size: 0.85em;
+  }
+  
+  .stat-label,
+  .stat-value {
+    font-size: 0.85em;
+  }
+  
+  .language-detail-name,
+  .language-detail-percentage {
+    font-size: 0.85em;
+  }
+}
