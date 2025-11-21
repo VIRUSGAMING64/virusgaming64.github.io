@@ -4,3 +4,4 @@ node_modules/
 # Package manager files
 package-lock.json
 yarn.lock
+src/main.js.backup
