@@ -1,0 +1,30 @@
+/* Tab content styles */
+
+.hidden {
+  height: 0px;
+  overflow: hidden;
+  transition: 500ms;
+  color: var(--TextColor);
+}
+
+.showed {
+  height: auto;
+  overflow: showed;
+  transition: 500ms;
+}
+
+.tab-content {
+  display: block;
+}
+
+.tab-content.hidden {
+  display: none;
+  height: auto;
+}
+
+.tab-content h2 {
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(60, 60, 60, 0.6);
+  padding-bottom: 10px;
+}

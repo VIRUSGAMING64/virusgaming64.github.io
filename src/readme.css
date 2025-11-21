@@ -1,0 +1,98 @@
+/* README content styling */
+
+.repo-readme-content {
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(60, 60, 60, 0.5);
+  border-radius: 6px;
+  padding: 15px;
+}
+
+/* Override GitHub markdown CSS to match our dark theme */
+.repo-readme-content.markdown-body {
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.repo-readme-content.markdown-body h1,
+.repo-readme-content.markdown-body h2,
+.repo-readme-content.markdown-body h3,
+.repo-readme-content.markdown-body h4,
+.repo-readme-content.markdown-body h5,
+.repo-readme-content.markdown-body h6 {
+  color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: rgba(60, 60, 60, 0.6) !important;
+}
+
+.repo-readme-content.markdown-body a {
+  color: rgba(120, 160, 255, 0.95) !important;
+}
+
+.repo-readme-content.markdown-body a:hover {
+  color: rgba(160, 200, 255, 1) !important;
+}
+
+.repo-readme-content.markdown-body code {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: rgba(255, 200, 100, 0.95) !important;
+  border-radius: 3px;
+}
+
+.repo-readme-content.markdown-body pre {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid rgba(60, 60, 60, 0.5) !important;
+}
+
+.repo-readme-content.markdown-body pre code {
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.repo-readme-content.markdown-body blockquote {
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-left-color: rgba(80, 80, 120, 0.6) !important;
+}
+
+.repo-readme-content.markdown-body table {
+  background-color: transparent !important;
+}
+
+.repo-readme-content.markdown-body table tr {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  border-top-color: rgba(60, 60, 60, 0.5) !important;
+}
+
+.repo-readme-content.markdown-body table tr:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.repo-readme-content.markdown-body table th,
+.repo-readme-content.markdown-body table td {
+  border-color: rgba(60, 60, 60, 0.5) !important;
+}
+
+.repo-readme-content.markdown-body img {
+  background-color: transparent !important;
+  border-radius: 4px;
+}
+
+.repo-readme-content.markdown-body hr {
+  background-color: rgba(60, 60, 60, 0.5) !important;
+  border: none;
+  height: 1px;
+}
+
+/* Fallback plain text styling (when markdown fails to parse) */
+.repo-readme-text {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(60, 60, 60, 0.5);
+  border-radius: 6px;
+  padding: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
