@@ -1,59 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VIRUSGAMING64 - GitHub Portfolio</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <!-- Markdown rendering library -->
-    <script src="lib/marked.min.js"></script>
-    <!-- GitHub markdown CSS -->
-    <link rel="stylesheet" href="lib/github-markdown-dark.css">
-    <!-- Modular JavaScript files -->
-    <script src="src/utils.js"></script>
-    <script src="src/tabs.js"></script>
-    <script src="src/languages.js"></script>
-    <script src="src/repositories.js"></script>
-    <script src="src/graph.js"></script>
-    <script src="src/app.js"></script>
-    <!-- Modular CSS files -->
-    <link rel="stylesheet" href="src/base.css">
-    <link rel="stylesheet" href="src/sidebar.css">
-    <link rel="stylesheet" href="src/buttons.css">
-    <link rel="stylesheet" href="src/layout.css">
-    <link rel="stylesheet" href="src/tabs.css">
-    <link rel="stylesheet" href="src/repositories.css">
-    <link rel="stylesheet" href="src/languages.css">
-    <link rel="stylesheet" href="src/readme.css">
-    <link rel="stylesheet" href="src/responsive.css">
-</head>
-<body class="main_style" onload="loadRepoStats(); initGraph();">
-    <canvas id="graph-canvas"></canvas>
-    <div class="flex">
-        <div class="SideBar">
-            <div class="menu">
-                <button onclick="showTab('repos-tab')" class="button">📦 Repos</button>
-                <button onclick="showTab('languages-tab')" class="button">💻 Languages</button>
-                <div id="repo-tabs-container"></div>
-            </div>
-        </div>
-        <div class="content-area">
-            <!-- Repository Statistics Tab -->
-            <div id="repos-tab" class="tab-content hidden">
-                <h2>📊 Repository Statistics</h2>
-                <div id="last-updated" class="info-text"></div>
-                <div id="repo-list" class="repo-container"></div>
-            </div>
-            
-            <!-- Language Statistics Tab -->
-            <div id="languages-tab" class="tab-content hidden">
-                <h2>🌐 Programming Languages Overview</h2>
-                <div id="language-stats" class="language-container"></div>
-            </div>
-            
-            <!-- Individual Repository Tabs (dynamically generated) -->
-            <div id="individual-repos-container"></div>
-        </div>
-    </div>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
