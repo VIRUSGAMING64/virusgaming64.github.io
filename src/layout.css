@@ -16,6 +16,17 @@
   z-index: 1;
 }
 
+.style {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  color: var(--TextColor);
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .info-text {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 15px;
