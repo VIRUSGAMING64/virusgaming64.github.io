@@ -23,18 +23,18 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Apply random gradient background
+    // Apply random dark gradient background
     const gradients = [
-      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
-      'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
-      'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
-      'linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%)',
+      'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)',
+      'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
+      'linear-gradient(135deg, #141e30 0%, #243b55 100%)',
+      'linear-gradient(135deg, #000000 0%, #0f2027 50%, #203a43 100%)',
+      'linear-gradient(135deg, #0c0c0c 0%, #1c1c3c 100%)',
+      'linear-gradient(135deg, #1a1a1a 0%, #2d2d44 100%)',
+      'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2128 100%)',
+      'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)',
+      'linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%)',
+      'linear-gradient(135deg, #0c0c1e 0%, #1e1e3f 100%)',
     ];
     const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
     document.body.style.background = randomGradient;
