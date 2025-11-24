@@ -5,9 +5,64 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VIRUSGAMING64 - GitHub Portfolio</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/src/base.css">
+    <link rel="stylesheet" href="/src/sidebar.css">
+    <link rel="stylesheet" href="/src/buttons.css">
+    <link rel="stylesheet" href="/src/layout.css">
+    <link rel="stylesheet" href="/src/tabs.css">
+    <link rel="stylesheet" href="/src/repositories.css">
+    <link rel="stylesheet" href="/src/languages.css">
+    <link rel="stylesheet" href="/src/readme.css">
+    <link rel="stylesheet" href="/src/responsive.css">
+    <link rel="stylesheet" href="/lib/github-markdown-dark.css">
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.js"></script>
+  <body onload="loadRepoStats(); initGraph();">
+    <!-- Graph canvas background -->
+    <canvas id="graph-canvas"></canvas>
+    
+    <!-- Main content container -->
+    <div class="flex">
+      <!-- Sidebar -->
+      <div class="menu">
+        <!-- Main navigation buttons -->
+        <button class="button" onclick="showTab('repos-tab')">📦 Repos</button>
+        <button class="button" onclick="showTab('languages-tab')">💻 Languages</button>
+        
+        <!-- Individual repository tabs -->
+        <div id="repo-tabs-container"></div>
+      </div>
+      
+      <!-- Main content area -->
+      <div class="style">
+        <!-- Repositories Overview Tab -->
+        <div id="repos-tab" class="tab-content hidden">
+          <h2>📊 Repository Statistics</h2>
+          <p id="last-updated" class="info-text"></p>
+          <div id="repo-list"></div>
+        </div>
+        
+        <!-- Languages Overview Tab -->
+        <div id="languages-tab" class="tab-content hidden">
+          <h2>🌐 Programming Languages Overview</h2>
+          <div id="language-stats"></div>
+        </div>
+        
+        <!-- Individual Repository Detail Tabs (generated dynamically) -->
+        <div id="individual-repos-container"></div>
+      </div>
+    </div>
+    
+    <!-- JavaScript Libraries -->
+    <script src="/lib/marked.min.js"></script>
+    
+    <!-- JavaScript Modules -->
+    <script src="/src/utils.js"></script>
+    <script src="/src/tabs.js"></script>
+    <script src="/src/languages.js"></script>
+    <script src="/src/repositories.js"></script>
+    <script src="/src/graph.js"></script>
+    <script src="/src/app.js"></script>
   </body>
 </html>

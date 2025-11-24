@@ -1,0 +1,36 @@
+/* Button styles */
+
+.button {
+  background: linear-gradient(135deg, rgba(25, 25, 35, 0.6), rgba(15, 15, 25, 0.6));
+  color: var(--TextColor);
+  width: 100%;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(60, 60, 80, 0.5);
+  padding: 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, rgba(40, 40, 60, 0.7), rgba(30, 30, 45, 0.7));
+  border-color: rgba(80, 80, 120, 0.7);
+  transform: translateX(5px);
+  box-shadow: 0 2px 10px rgba(60, 60, 100, 0.4);
+}
+
+.repo-button {
+  background: linear-gradient(135deg, rgba(20, 25, 40, 0.6), rgba(15, 20, 30, 0.6));
+  margin-top: 3px;
+  padding: 6px 8px;
+  font-size: 0.8em;
+  display: block;
+  width: 100%;
+}
+
+.repo-button:hover {
+  background: linear-gradient(135deg, rgba(35, 40, 60, 0.8), rgba(25, 30, 45, 0.8));
+}
