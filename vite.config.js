@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { transform } from 'esbuild'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,10 +14,11 @@ export default defineConfig({
           async transform(code, id) {
             if (!id.endsWith('.js')) return null
             if (id.includes('node_modules')) return null
+            // Check if file contains JSX syntax
+            if (!code.includes('jsx') && !code.includes('<')) return null
             
             // Use esbuild to transform JSX in .js files
-            const esbuild = await import('esbuild')
-            const result = await esbuild.transform(code, {
+            const result = await transform(code, {
               loader: 'jsx',
               jsx: 'automatic',
               jsxDev: false,
