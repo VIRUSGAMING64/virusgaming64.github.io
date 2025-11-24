@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 
 const RepoDetailTab = ({ repo }) => {
   const [readmeHtml, setReadmeHtml] = useState('');
@@ -10,7 +11,9 @@ const RepoDetailTab = ({ repo }) => {
         breaks: true,
         gfm: true
       });
-      setReadmeHtml(marked.parse(repo.readme));
+      const rawHtml = marked.parse(repo.readme);
+      const sanitizedHtml = DOMPurify.sanitize(rawHtml);
+      setReadmeHtml(sanitizedHtml);
     }
   }, [repo.readme]);
 

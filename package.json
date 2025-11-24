@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "chart.js": "^4.5.1",
+    "dompurify": "^3.3.0",
     "marked": "^17.0.1",
     "react": "^19.2.0",
     "react-chartjs-2": "^5.3.1",
