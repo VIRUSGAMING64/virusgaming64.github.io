@@ -5,21 +5,21 @@ let modes = [0, 50];
 let mode = false;
 let actual = null;
 
-// Generate random gradient colors - Warp-style dark theme
+// Generate random gradient colors - dark theme matching React version
 function generateRandomGradient() {
-    const randomColor = () => {
-        const r = Math.floor(Math.random() * 20 + 10); // 10-30
-        const g = Math.floor(Math.random() * 20 + 10); // 10-30
-        const b = Math.floor(Math.random() * 25 + 15); // 15-40
-        return `rgb(${r}, ${g}, ${b})`;
-    };
-    
-    const color1 = randomColor();
-    const color2 = randomColor();
-    const color3 = randomColor();
-    const angle = Math.floor(Math.random() * 360);
-    
-    return `linear-gradient(${angle}deg, ${color1} 0%, ${color2} 50%, ${color3} 100%)`;
+    const gradients = [
+      'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)',
+      'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
+      'linear-gradient(135deg, #141e30 0%, #243b55 100%)',
+      'linear-gradient(135deg, #000000 0%, #0f2027 50%, #203a43 100%)',
+      'linear-gradient(135deg, #0c0c0c 0%, #1c1c3c 100%)',
+      'linear-gradient(135deg, #1a1a1a 0%, #2d2d44 100%)',
+      'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2128 100%)',
+      'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)',
+      'linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%)',
+      'linear-gradient(135deg, #0c0c1e 0%, #1e1e3f 100%)',
+    ];
+    return gradients[Math.floor(Math.random() * gradients.length)];
 }
 
 // Apply random gradient to body

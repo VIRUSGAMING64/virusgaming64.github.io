@@ -1,26 +1,31 @@
 // Main application initialization and data loading
-// NOTE: This file is legacy code and not currently used.
-// The active application uses React in App.jsx which imports data directly.
 
 // Load repository statistics from JSON file
-// DEPRECATED: Use direct import instead of fetch
-// import repoStatsData from '../data/repo-stats.json';
 async function loadRepoStats() {
     try {
-        // To avoid fetch in GitHub Pages, import the JSON directly in your component:
-        // import repoStatsData from '../data/repo-stats.json';
-        // const data = repoStatsData;
+        // Fetch the JSON data
+        const response = await fetch('/data/repo-stats.json');
+        const data = await response.json();
         
-        console.warn('This function is deprecated. Use direct JSON import instead of fetch.');
-        
-        // Legacy code removed - see App.jsx for current implementation
-        // displayRepositories(data);
-        // displayLanguageStats(data);
-        // generateIndividualRepoTabs(data);
+        // Display the data using module functions
+        displayRepositories(data);
+        displayLanguageStats(data);
+        generateIndividualRepoTabs(data);
         
         // Open languages tab by default
-        // showTab('languages-tab');
+        showTab('languages-tab');
     } catch (error) {
         console.error('Error loading repository statistics:', error);
+        
+        // Show error message to user
+        const repoList = document.getElementById('repo-list');
+        const languageStats = document.getElementById('language-stats');
+        
+        if (repoList) {
+            repoList.innerHTML = '<p class="info-text">⚠️ Error loading repository data. Please try again later.</p>';
+        }
+        if (languageStats) {
+            languageStats.innerHTML = '<p class="info-text">⚠️ Error loading language statistics.</p>';
+        }
     }
 }

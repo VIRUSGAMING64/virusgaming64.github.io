@@ -26,9 +26,9 @@ class Node {
     draw(ctx) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(200, 200, 255, 0.95)';
+        ctx.fillStyle = 'rgba(150, 180, 255, 0.95)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(230, 230, 255, 0.85)';
+        ctx.strokeStyle = 'rgba(180, 200, 255, 0.85)';
         ctx.lineWidth = 1;
         ctx.stroke();
     }
@@ -194,15 +194,15 @@ function animateGraph() {
                 graphCtx.lineTo(target.x, target.y);
                 
                 if (glowIntensity > 0) {
-                    // Glowing edges with gradual intensity
-                    const alpha = 0.3 + (0.6 * glowIntensity);
-                    graphCtx.strokeStyle = `rgba(200, 200, 255, ${alpha})`;
+                    // Glowing edges with gradual intensity - matching React version
+                    const alpha = 0.4 + (0.6 * glowIntensity);
+                    graphCtx.strokeStyle = `rgba(150, 180, 255, ${alpha})`;
                     graphCtx.lineWidth = 1 + (glowIntensity * 1.5);
                     graphCtx.shadowBlur = glowIntensity * 15;
-                    graphCtx.shadowColor = `rgba(150, 150, 255, ${glowIntensity * 0.8})`;
+                    graphCtx.shadowColor = `rgba(120, 150, 255, ${glowIntensity * 0.8})`;
                 } else {
-                    // Normal edges
-                    graphCtx.strokeStyle = 'rgba(100, 100, 200, 0.3)';
+                    // Normal edges - matching React version
+                    graphCtx.strokeStyle = 'rgba(100, 130, 220, 0.4)';
                     graphCtx.lineWidth = 1;
                     graphCtx.shadowBlur = 0;
                 }
