@@ -4,23 +4,12 @@ import Sidebar from './components/Sidebar';
 import ReposTab from './components/ReposTab';
 import LanguagesTab from './components/LanguagesTab';
 import RepoDetailTab from './components/RepoDetailTab';
+import repoStatsData from '../data/repo-stats.json';
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data] = useState(repoStatsData);
   const [activeTab, setActiveTab] = useState('languages-tab');
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    // Load repository statistics
-    fetch('/data/repo-stats.json')
-      .then(response => response.json())
-      .then(data => {
-        setData(data);
-      })
-      .catch(error => {
-        console.error('Error loading repository statistics:', error);
-      });
-  }, []);
 
   useEffect(() => {
     // Apply random dark gradient background
