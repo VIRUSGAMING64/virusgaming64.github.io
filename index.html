@@ -24,8 +24,13 @@
     
     <!-- Main content container -->
     <div class="flex">
+      <!-- Mobile toggle button for sidebar -->
+      <button id="mobile-menu-toggle" class="mobile-toggle-btn">
+        <span id="toggle-icon">☰</span>
+      </button>
+      
       <!-- Sidebar -->
-      <div class="menu">
+      <div class="menu" id="sidebar">
         <!-- Main navigation buttons -->
         <button class="button" onclick="showTab('repos-tab')">📦 Repos</button>
         <button class="button" onclick="showTab('languages-tab')">💻 Languages</button>

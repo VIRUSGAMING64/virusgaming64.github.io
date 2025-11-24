@@ -1,6 +1,43 @@
 /* Mobile Responsive Design - Media Queries */
 
+/* Mobile toggle button - hidden on desktop */
+.mobile-toggle-btn {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
+  /* Show mobile toggle button */
+  .mobile-toggle-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background-color: rgba(60, 60, 80, 0.9);
+    border: 1px solid rgba(100, 100, 120, 0.6);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .mobile-toggle-btn:hover {
+    background-color: rgba(70, 70, 90, 0.95);
+    transform: scale(1.05);
+  }
+  
+  .mobile-toggle-btn:active {
+    transform: scale(0.95);
+  }
+  
+  /* Hide sidebar when mobile-hidden class is applied */
+  .menu.mobile-hidden {
+    display: none;
+  }
+  
   .flex {
     flex-direction: column;
   }
@@ -26,7 +63,8 @@
     white-space: nowrap;
   }
   
-  .content-area {
+  .content-area,
+  .style {
     padding: 8px;
     max-height: none;
   }
@@ -108,7 +146,8 @@
 }
 
 @media screen and (max-width: 480px) {
-  .content-area {
+  .content-area,
+  .style {
     padding: 6px;
   }
   
