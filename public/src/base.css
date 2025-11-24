@@ -1,0 +1,36 @@
+/* Base styles, variables, and graph canvas */
+
+*,
+html {
+  --TextColor: rgba(255, 255, 255, 0.85);
+}
+
+html{
+    height: 100vh;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#graph-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+.main_style {
+  /* Background gradient will be applied dynamically via JavaScript */
+}
+
+a{
+    color: var(--TextColor);
+}
