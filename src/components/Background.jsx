@@ -26,9 +26,9 @@ class Node {
   draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(200, 200, 255, 0.95)';
+    ctx.fillStyle = 'rgba(150, 180, 255, 0.95)';
     ctx.fill();
-    ctx.strokeStyle = 'rgba(230, 230, 255, 0.85)';
+    ctx.strokeStyle = 'rgba(180, 200, 255, 0.85)';
     ctx.lineWidth = 1;
     ctx.stroke();
   }
@@ -155,13 +155,13 @@ const Background = () => {
             ctx.lineTo(target.x, target.y);
             
             if (glowIntensity > 0) {
-              const alpha = 0.3 + (0.6 * glowIntensity);
-              ctx.strokeStyle = `rgba(200, 200, 255, ${alpha})`;
+              const alpha = 0.4 + (0.6 * glowIntensity);
+              ctx.strokeStyle = `rgba(150, 180, 255, ${alpha})`;
               ctx.lineWidth = 1 + (glowIntensity * 1.5);
               ctx.shadowBlur = glowIntensity * 15;
-              ctx.shadowColor = `rgba(150, 150, 255, ${glowIntensity * 0.8})`;
+              ctx.shadowColor = `rgba(120, 150, 255, ${glowIntensity * 0.8})`;
             } else {
-              ctx.strokeStyle = 'rgba(100, 100, 200, 0.3)';
+              ctx.strokeStyle = 'rgba(100, 130, 220, 0.4)';
               ctx.lineWidth = 1;
               ctx.shadowBlur = 0;
             }
@@ -200,7 +200,7 @@ const Background = () => {
   return (
     <canvas 
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full opacity-20 -z-10"
+      className="fixed top-0 left-0 w-full h-full opacity-25 -z-10"
     />
   );
 };
