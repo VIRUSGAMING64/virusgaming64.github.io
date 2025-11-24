@@ -1,12 +1,12 @@
 {
-  "last_updated": "2025-11-24T05:13:32.113992Z",
+  "last_updated": "2025-11-24T13:01:44.565440Z",
   "total_repositories": 9,
   "overall_languages": {
-    "Python": 65.62,
+    "Python": 65.27,
     "C#": 14.29,
-    "JavaScript": 7.68,
-    "HTML": 6.72,
-    "CSS": 5.28,
+    "CSS": 7.45,
+    "HTML": 6.96,
+    "JavaScript": 5.64,
     "Shell": 0.4
   },
   "repositories": [
@@ -139,16 +139,16 @@
       "full_name": "VIRUSGAMING64/virusgaming64.github.io",
       "description": null,
       "url": "https://github.com/VIRUSGAMING64/virusgaming64.github.io",
-      "size_kb": 162,
-      "size_formatted": "162 KB",
+      "size_kb": 209,
+      "size_formatted": "209 KB",
       "languages": {
-        "JavaScript": 53.78,
-        "CSS": 36.47,
-        "Python": 9.31,
-        "HTML": 0.44
+        "CSS": 51.66,
+        "JavaScript": 39.46,
+        "Python": 6.8,
+        "HTML": 2.08
       },
       "readme": "<div align=\"center\">\n\n# 🎮 VIRUSGAMING64 Portfolio\n\n[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?style=for-the-badge&logo=github)](https://virusgaming64.github.io)\n[![Auto Update](https://img.shields.io/badge/Auto%20Update-Daily-blue?style=for-the-badge&logo=github-actions)](https://github.com/VIRUSGAMING64/virusgaming64.github.io/actions)\n[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)\n\n**A dynamic GitHub portfolio showcasing projects, statistics, and coding journey**\n\n[🌐 Live Demo](https://virusgaming64.github.io) | [📊 View Stats](https://virusgaming64.github.io) | [🐛 Report Bug](https://github.com/VIRUSGAMING64/virusgaming64.github.io/issues)\n\n</div>\n\n---\n\n## 📖 About This Project 🌟\n\nWelcome to my interactive GitHub portfolio! 👋 This website is a living showcase of my coding projects and development journey. 🚀 It automatically updates daily with the latest repository statistics, programming language usage, and project information directly from my GitHub profile.\n\nBuilt with vanilla JavaScript, HTML, and CSS 💪, this portfolio demonstrates clean code practices, API integration, and automation through GitHub Actions. The site features a modern, responsive design with animated backgrounds ✨ and an intuitive tabbed interface.\n\n### ✨ Key Features\n\n- 🔄 **Automated Daily Updates** - Repository statistics refresh automatically every day at 5:40 PM Cuba time (21:40 UTC)\n- 📊 **Real-Time Repository Stats** - Displays size, stars, forks, and descriptions for all repositories\n- 💻 **Language Analytics** - Visual breakdown of programming languages used across projects\n- 🎨 **Modern UI/UX** - Clean, responsive interface with animated particle background\n- 📱 **Mobile Friendly** - Fully responsive design that works on all devices\n- ⚡ **Fast & Lightweight** - No heavy frameworks, just pure vanilla JavaScript\n- 🔍 **Searchable & Organized** - Easy-to-navigate tabbed layout for repositories and languages\n\n---\n\n## 🚀 Live Demo 🌐\n\nVisit the live website: **[virusgaming64.github.io](https://virusgaming64.github.io)** 👈\n\nThe site features:\n- **📦 Repos Tab**: Browse all my GitHub repositories with detailed information 📚\n- **💻 Languages Tab**: See the programming languages I work with and their usage percentages 📈\n\n---\n\n## 🛠️ Technical Architecture ⚙️\n\n### How It Works 🔧\n\nThis portfolio uses a three-component automated system: 🎯\n\n#### 1. 🤖 GitHub Actions Workflow\nLocated in `.github/workflows/update-repo-stats.yml`:\n- Runs automatically on a daily schedule (21:40 UTC)\n- Can be manually triggered from the Actions tab\n- Executes the Python data fetcher\n- Commits updated statistics back to the repository\n- Triggers automatic deployment to GitHub Pages\n\n#### 2. 🐍 Python Data Fetcher\nScript: `scripts/fetch_repo_stats.py`\n- Connects to GitHub API to fetch repository data\n- Retrieves comprehensive information for each repository\n- Calculates aggregate language statistics\n- Generates formatted size metrics (KB, MB, GB)\n- Saves structured data to `data/repo-stats.json`\n\n#### 3. 🌐 Interactive Web Interface\nFiles: `index.html`, `src/main.js`, `src/main.css`\n- Loads and displays repository statistics dynamically\n- Renders animated particle background for visual appeal\n- Provides tabbed navigation between different views\n- Updates in real-time when new data is available\n- Fully responsive across desktop and mobile devices\n\n### Data Structure 📋\n\nRepository statistics are stored in `data/repo-stats.json`: 💾\n\n```json\n{\n  \"last_updated\": \"2025-11-08T21:40:00Z\",\n  \"total_repositories\": 15,\n  \"overall_languages\": {\n    \"JavaScript\": 45.5,\n    \"Python\": 30.2,\n    \"HTML\": 15.3,\n    \"CSS\": 9.0\n  },\n  \"repositories\": [\n    {\n      \"name\": \"awesome-project\",\n      \"description\": \"An amazing project description\",\n      \"size_kb\": 2048,\n      \"size_formatted\": \"2.0 MB\",\n      \"languages\": {\n        \"JavaScript\": 70.5,\n        \"HTML\": 20.0,\n        \"CSS\": 9.5\n      },\n      \"stars\": 10,\n      \"forks\": 3,\n      \"html_url\": \"https://github.com/VIRUSGAMING64/awesome-project\",\n      \"created_at\": \"2025-01-15T10:30:00Z\",\n      \"updated_at\": \"2025-11-08T15:20:00Z\"\n    }\n  ]\n}\n```\n\n---\n\n## 💻 Local Development 🔨\n\nWant to run this project locally or contribute? Follow these steps: 👇\n\n### Prerequisites ✅\n\n- 🐍 Python 3.7 or higher\n- 🔑 A GitHub Personal Access Token (for fetching repository data)\n- 🌐 A modern web browser\n- 📚 Basic knowledge of HTML, CSS, and JavaScript\n\n### Setup Instructions 📝\n\n1. **Clone the repository** 📥\n   ```bash\n   git clone https://github.com/VIRUSGAMING64/virusgaming64.github.io.git\n   cd virusgaming64.github.io\n   ```\n\n2. **Install Python dependencies** 📦\n   ```bash\n   pip install requests\n   ```\n\n3. **Set up your GitHub token** 🔐\n   ```bash\n   # Linux/Mac\n   export GITHUB_TOKEN=your_personal_access_token_here\n   \n   # Windows (PowerShell)\n   $env:GITHUB_TOKEN=\"your_personal_access_token_here\"\n   ```\n\n4. **Fetch repository statistics** 📊\n   ```bash\n   python scripts/fetch_repo_stats.py\n   ```\n\n5. **Start a local web server** 🚀\n   ```bash\n   # Python 3\n   python -m http.server 8000\n   \n   # Or use any other local server like Live Server in VS Code\n   ```\n\n6. **Open your browser** 🌐\n   Navigate to `http://localhost:8000` 👀\n\n### Manual Statistics Update 🔄\n\nTo manually update the repository statistics: ⚡\n\n1. Navigate to the **[Actions](https://github.com/VIRUSGAMING64/virusgaming64.github.io/actions)** tab 🎬\n2. Select the **\"Update Repository Statistics\"** workflow 📋\n3. Click **\"Run workflow\"** button ▶️\n4. Select the branch (usually `main`) 🌿\n5. Click **\"Run workflow\"** to confirm ✔️\n6. Wait for the workflow to complete (usually takes 30-60 seconds) ⏱️\n7. Refresh the website to see updated statistics 🔃\n\n---\n\n## 🤝 Contributing 💡\n\nContributions, issues, and feature requests are welcome! 🎉 Feel free to check the [issues page](https://github.com/VIRUSGAMING64/virusgaming64.github.io/issues). 🐛\n\n### How to Contribute 🌟\n\n1. 🍴 Fork the project\n2. 🌿 Create your feature branch (`git checkout -b feature/AmazingFeature`)\n3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)\n4. 🚀 Push to the branch (`git push origin feature/AmazingFeature`)\n5. 🎁 Open a Pull Request\n\n---\n\n## 📝 License 📜\n\nThis project is open source and available under the [MIT License](LICENSE). ⚖️\n\n---\n\n## 📬 Contact 💬\n\n**VIRUSGAMING64** 👨‍💻 - [@VIRUSGAMING64](https://github.com/VIRUSGAMING64)\n\nProject Link: 🔗 [https://github.com/VIRUSGAMING64/virusgaming64.github.io](https://github.com/VIRUSGAMING64/virusgaming64.github.io)\n\n---\n\n<div align=\"center\">\n\n**⭐ Star this repository if you found it helpful! ⭐**\n\nMade with ❤️ and ☕ by VIRUSGAMING64\n\n🎮 Happy Coding! 💻\n\n</div>\n",
-      "updated_at": "2025-11-24T05:13:21Z",
+      "updated_at": "2025-11-24T13:01:31Z",
       "created_at": "2025-08-17T03:07:09Z",
       "stars": 0,
       "forks": 0,
