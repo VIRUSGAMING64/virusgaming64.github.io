@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-11-22T02:38:35.925402Z",
+  "last_updated": "2026-11-23T03:06:25.913708Z",
   "total_repositories": 14,
   "overall_languages": {
     "Python": 35.27,
-    "Go": 26.34,
+    "Go": 26.35,
     "CSS": 9.17,
     "HTML": 8.34,
     "C#": 7.14,
@@ -66,14 +66,14 @@
       "full_name": "VIRUSGAMING64/factorio_optimizer_go",
       "description": "Go port of SeezoCode/factorio_optimizer_v2 — Factorio 2.0 blueprint optimizer (plan → place → route → validate → emit)",
       "url": "https://github.com/VIRUSGAMING64/factorio_optimizer_go",
-      "size_kb": 269,
-      "size_formatted": "269 KB",
+      "size_kb": 315,
+      "size_formatted": "315 KB",
       "languages": {
-        "Go": 99.63,
-        "Shell": 0.29,
-        "Makefile": 0.08
+        "Go": 99.67,
+        "Shell": 0.26,
+        "Makefile": 0.07
       },
-      "readme": "# Factorio Optimizer (Go)\n\nGo port of [SeezoCode/factorio_optimizer_v2](https://github.com/SeezoCode/factorio_optimizer_v2) — Factorio 2.0 layout optimizer:\n\n**plan → place (SA + HPWL + bins + DI) → route (lane A* + multipass) → validate → emit blueprint**\n\n## Requirements\n\n- Go 1.22+\n- `data/recipes.json` from the original project:\n\n```bash\ncurl -L -o data/recipes.json \\\n  https://raw.githubusercontent.com/SeezoCode/factorio_optimizer_v2/main/data/recipes.json\n```\n\n## Run\n\n```bash\ngo test ./...\ngo run ./cmd/optimize --config=data/red_green.json --sa-iters=30000 --attempts=2\ngo run ./cmd/optimize --config=data/config.json --sa-iters=8000\n```\n\n## Status (~12k LOC, tests green)\n\nImplemented: greedy plan + rebalance + pure-Go LP refine, SA placement (HPWL, congestion bins, DI credit, clusters),\nlane-aware PathFinder + capacity-aware sharing, multipass/negotiate routing, factory-of-blocks + column templates,\nvalidation (rates, layout detail, inserter geometry + throughput notes, shape), blueprint emit, poles/beacons/heat (coverage + connected tree), ASCII+PNG viz.\n\nStill lighter than upstream: full Templates.kt, PlaceModel fluid stubs, real LP solver, UI. Recent: dual-simplex equilibration, balanced per-lane residual attribution, negotiated joint re-route, post-route underground weaving, selective rip-up endgame, aggressive UG (run≥3), densify floorplan, optional `rate_solver: \"revised\"` config flag (Euclidean column-preconditioned dual simplex), fluid connection legality penalty in PlaceModel.\n\n## Configuration notes\n\n- `\"rate_solver\": \"revised\"` in the job JSON selects `RevisedSimplex` (column preconditioning) instead of the default dual-simplex backend. Any other value (or omission) keeps the built-in solver.\n\n## License\n\nPort for learning/interoperability; respect upstream license for algorithms and data.\n",
+      "readme": "# Factorio Optimizer (Go)\n\nGo port of [SeezoCode/factorio_optimizer_v2](https://github.com/SeezoCode/factorio_optimizer_v2) — Factorio 2.0 layout optimizer:\n\n**plan → place (SA + HPWL + bins + DI) → route (lane A* + multipass) → validate → emit blueprint**\n\n## Requirements\n\n- Go 1.22+\n- `data/recipes.json` from the original project:\n\n```bash\ncurl -L -o data/recipes.json \\\n  https://raw.githubusercontent.com/SeezoCode/factorio_optimizer_v2/main/data/recipes.json\n```\n\n## Run\n\n```bash\ngo test ./...\ngo run ./cmd/optimize --config=data/red_green.json --sa-iters=30000 --attempts=2\ngo run ./cmd/optimize --config=data/config.json --sa-iters=8000\n```\n\n## Status (~16.8k LOC, tests green)\n\nSee [docs/STATUS.md](docs/STATUS.md) and [docs/IMPLEMENTATION_LOG.md](docs/IMPLEMENTATION_LOG.md) for details.\n\n\nImplemented: greedy plan + rebalance + pure-Go LP refine, SA placement (HPWL, congestion bins, DI credit, clusters),\nlane-aware PathFinder + capacity-aware sharing, multipass/negotiate routing, factory-of-blocks + column templates,\nvalidation (rates, layout detail, inserter geometry + throughput notes, shape), blueprint emit, poles/beacons/heat (coverage + connected tree), ASCII+PNG viz.\n\nStill lighter than upstream: full Templates.kt, PlaceModel fluid stubs, real LP solver, UI. Recent: dual-simplex equilibration, balanced per-lane residual attribution, negotiated joint re-route, post-route underground weaving, selective rip-up endgame, aggressive UG (run≥3), densify floorplan, optional `rate_solver: \"revised\"` config flag (Euclidean column-preconditioned dual simplex), fluid connection legality penalty (now rotation-aware) in PlaceModel, pipe-to-ground weaving for long fluid runs.\n\n## Configuration notes\n\n- `\"rate_solver\": \"revised\"` in the job JSON selects `RevisedSimplex` (column preconditioning) instead of the default dual-simplex backend. Any other value (or omission) keeps the built-in solver.\n\n## License\n\nPort for learning/interoperability; respect upstream license for algorithms and data.\n",
       "updated_at": "2026-11-21T07:06:49Z",
       "created_at": "2026-11-20T18:19:14Z",
       "stars": 1,
@@ -247,8 +247,8 @@
       "full_name": "VIRUSGAMING64/virusgaming64.github.io",
       "description": null,
       "url": "https://github.com/VIRUSGAMING64/virusgaming64.github.io",
-      "size_kb": 403,
-      "size_formatted": "403 KB",
+      "size_kb": 405,
+      "size_formatted": "405 KB",
       "languages": {
         "CSS": 51.26,
         "JavaScript": 40.06,
