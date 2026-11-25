@@ -1,21 +1,20 @@
 {
-  "last_updated": "2026-11-24T06:23:41.020846Z",
-  "total_repositories": 15,
+  "last_updated": "2026-11-25T05:01:09.626515Z",
+  "total_repositories": 14,
   "overall_languages": {
-    "Python": 39.58,
-    "Go": 24.59,
-    "CSS": 8.56,
-    "HTML": 7.79,
-    "C#": 6.67,
-    "Assembly": 4.92,
-    "JavaScript": 4.01,
-    "SCSS": 2.33,
-    "TypeScript": 0.76,
-    "Java": 0.53,
-    "Dockerfile": 0.12,
-    "Shell": 0.1,
-    "C++": 0.04,
-    "Makefile": 0.0
+    "Python": 42.85,
+    "Go": 19.23,
+    "CSS": 9.17,
+    "HTML": 8.34,
+    "C#": 7.14,
+    "Assembly": 4.62,
+    "JavaScript": 4.3,
+    "SCSS": 2.49,
+    "TypeScript": 0.81,
+    "Java": 0.77,
+    "Dockerfile": 0.13,
+    "Shell": 0.11,
+    "C++": 0.04
   },
   "repositories": [
     {
@@ -57,26 +56,6 @@
       "updated_at": "2026-06-24T04:19:45Z",
       "created_at": "2024-03-31T01:46:47Z",
       "stars": 0,
-      "forks": 0,
-      "is_fork": false,
-      "is_private": false
-    },
-    {
-      "name": "factorio_optimizer_go",
-      "full_name": "VIRUSGAMING64/factorio_optimizer_go",
-      "description": "Go port of SeezoCode/factorio_optimizer_v2 — Factorio 2.0 blueprint optimizer (plan → place → route → validate → emit)",
-      "url": "https://github.com/VIRUSGAMING64/factorio_optimizer_go",
-      "size_kb": 315,
-      "size_formatted": "315 KB",
-      "languages": {
-        "Go": 99.67,
-        "Shell": 0.26,
-        "Makefile": 0.07
-      },
-      "readme": "# Factorio Optimizer (Go)\n\nGo port of [SeezoCode/factorio_optimizer_v2](https://github.com/SeezoCode/factorio_optimizer_v2) — Factorio 2.0 layout optimizer:\n\n**plan → place (SA + HPWL + bins + DI) → route (lane A* + multipass) → validate → emit blueprint**\n\n## Requirements\n\n- Go 1.22+\n- `data/recipes.json` from the original project:\n\n```bash\ncurl -L -o data/recipes.json \\\n  https://raw.githubusercontent.com/SeezoCode/factorio_optimizer_v2/main/data/recipes.json\n```\n\n## Run\n\n```bash\ngo test ./...\ngo run ./cmd/optimize --config=data/red_green.json --sa-iters=30000 --attempts=2\ngo run ./cmd/optimize --config=data/config.json --sa-iters=8000\n```\n\n## Status (~16.8k LOC, tests green)\n\nSee [docs/STATUS.md](docs/STATUS.md) and [docs/IMPLEMENTATION_LOG.md](docs/IMPLEMENTATION_LOG.md) for details.\n\n\nImplemented: greedy plan + rebalance + pure-Go LP refine, SA placement (HPWL, congestion bins, DI credit, clusters),\nlane-aware PathFinder + capacity-aware sharing, multipass/negotiate routing, factory-of-blocks + column templates,\nvalidation (rates, layout detail, inserter geometry + throughput notes, shape), blueprint emit, poles/beacons/heat (coverage + connected tree), ASCII+PNG viz.\n\nStill lighter than upstream: full Templates.kt, PlaceModel fluid stubs, real LP solver, UI. Recent: dual-simplex equilibration, balanced per-lane residual attribution, negotiated joint re-route, post-route underground weaving, selective rip-up endgame, aggressive UG (run≥3), densify floorplan, optional `rate_solver: \"revised\"` config flag (Euclidean column-preconditioned dual simplex), fluid connection legality penalty (now rotation-aware) in PlaceModel, pipe-to-ground weaving for long fluid runs.\n\n## Configuration notes\n\n- `\"rate_solver\": \"revised\"` in the job JSON selects `RevisedSimplex` (column preconditioning) instead of the default dual-simplex backend. Any other value (or omission) keeps the built-in solver.\n\n## License\n\nPort for learning/interoperability; respect upstream license for algorithms and data.\n",
-      "updated_at": "2026-11-21T07:06:49Z",
-      "created_at": "2026-11-20T18:19:14Z",
-      "stars": 1,
       "forks": 0,
       "is_fork": false,
       "is_private": false
@@ -143,8 +122,8 @@
       "full_name": "VIRUSGAMING64/Models-of-Anti-Angiogenic-Treatment",
       "description": "Proyecto de Ecuaciones Diferenciales Ordinarias ",
       "url": "https://github.com/VIRUSGAMING64/Models-of-Anti-Angiogenic-Treatment",
-      "size_kb": 1909,
-      "size_formatted": "1.86 MB",
+      "size_kb": 2316,
+      "size_formatted": "2.26 MB",
       "languages": {
         "Python": 100.0
       },
@@ -226,13 +205,13 @@
       "full_name": "VIRUSGAMING64/S-MIPS-2026-2027",
       "description": null,
       "url": "https://github.com/VIRUSGAMING64/S-MIPS-2026-2027",
-      "size_kb": 4929,
-      "size_formatted": "4.81 MB",
+      "size_kb": 4940,
+      "size_formatted": "4.82 MB",
       "languages": {
-        "Assembly": 73.8,
-        "Python": 17.54,
-        "Java": 8.02,
-        "Shell": 0.64
+        "Assembly": 64.61,
+        "Python": 23.71,
+        "Java": 10.82,
+        "Shell": 0.86
       },
       "readme": "# S-MIPS: layout para implementar la CPU\n\nPlaca de Logisim Evolution 5.0.0 lista para que se implemente dentro una CPU **multiciclo** de S-MIPS. La placa (memoria, terminal, reloj, reset y halt) ya está resuelta; el subcircuito `CPU` está vacío, solo con su interfaz.\n\n```text\nSMIPS-Layout/\n├── docs/guide.pdf          Orientación y especificación completa del proyecto (fuente: guide.tex)\n├── circuit/smips.circ      Circuitos Board, CPU (vacío) y Memory\n├── programs/               Programas .asm: ejemplos (hello, array_sum, gcd, multiply) y pruebas de instrucciones (arithmetic, memory, branches)\n├── tests/                  (la crea el estudiante) programas de prueba propios: sección 7 de guide.pdf\n├── images/                 Imágenes de memoria generadas desde los .asm\n├── open.sh                 Abre el circuito en Logisim (con Questa si la CPU usa VHDL)\n└── tools/                  assemble.py (MARS → imagen), run_tests.py (compara con MARS), build.py\n```\n\n**La especificación del proyecto está en [`docs/guide.pdf`](docs/guide.pdf).** Este archivo solo resume la placa y el flujo de trabajo.\n\n## 1. Circuitos\n\n| Circuito | Contenido | ¿Se modifica? |\n|---|---|---|\n| `Board` (principal) | Reloj, botón Reset, CPU, Memory, TTY y LED Halt, conectados por túneles | No |\n| `CPU` | Solo los pines de la interfaz | **Sí: aquí se implementa la CPU** |\n| `Memory` | RAM nativa de 4096 × 32 bits con habilitación por bytes | No |\n\nNo se requiere Questa para usar la placa: todo es nativo de Logisim.\n\n## 2. Interfaz de la CPU\n\n| Pin | Dir. | Ancho | Significado |\n|---|---|---|---|\n| `CLK` | entrada | 1 | Reloj de la placa. Memoria y TTY actúan en el flanco de subida. |\n| `RESET` | entrada | 1 | Botón Reset (1 mientras está pulsado). |\n| `MEM_RDATA` | entrada | 32 | Palabra alineada que contiene la dirección `MEM_ADDR`. Llega en el **mismo ciclo** (lectura combinacional). |\n| `MEM_ADDR` | salida | 32 | Dirección de byte. La memoria ignora los bits 1..0 y lee/escribe la palabra alineada. |\n| `MEM_WDATA` | salida | 32 | Dato a escribir, ya colocado en su carril de byte. |\n| `MEM_BE` | salida | 4 | Habilitación por byte: el bit *k* escribe `MEM_WDATA[8k+7..8k]`. `sw` → `1111`; `sb` → un solo bit, según `MEM_ADDR[1..0]`. |\n| `MEM_WE` | salida | 1 | Con 1, la memoria escribe en el próximo flanco de subida de `CLK`. |\n| `TTY_DATA` | salida | 7 | Código ASCII del carácter a imprimir. |\n| `TTY_WE` | salida | 1 | Con 1, el TTY imprime `TTY_DATA` en el próximo flanco de subida. Debe durar **un ciclo** por carácter. |\n| `HALT` | salida | 1 | Enciende el LED Halt (`syscall` 10). |\n\nLa memoria es *little-endian*: el byte de la dirección `4n + k` es `MEM_RDATA[8k+7..8k]` al leer la palabra `4n`. Por tanto, `lb`/`lbu` deben seleccionar el byte con `MEM_ADDR[1..0]` y extenderlo, y `sb` debe replicar o desplazar el byte al carril correcto. Ese trabajo es de la CPU.\n\n## 3. Mapa de memoria\n\nCorresponde a la configuración **«Compact, Text at Address 0»** de MARS (*Settings → Memory Configuration*):\n\n| Región | Dirección |\n|---|---|\n| `.text` (PC inicial) | `0x0000` |\n| `$gp` inicial | `0x1800` |\n| `.data` | `0x2000` |\n| `$sp` inicial | `0x3FFC` |\n\nLa memoria tiene 16 KiB (`0x0000`–`0x3FFF`). Las direcciones superiores se repiten cada 16 KiB. Al hacer reset, la CPU debe poner PC = 0, `$sp` = `0x3FFC`, `$gp` = `0x1800` y el resto de registros a 0, como hace MARS. El botón Reset no borra la memoria.\n\n## 4. Servicios `syscall`\n\n| `$v0` | Servicio | Efecto en la placa |\n|---|---|---|\n| 11 | imprimir carácter | `TTY_DATA ← $a0[6..0]`, `TTY_WE = 1` durante un ciclo |\n| 10 | terminar | `HALT = 1`; la CPU deja de avanzar |\n| otro | — | sin efecto: continúa con la instrucción siguiente |\n\nUna instrucción ilegal detiene la CPU igual que `syscall` 10. Los detalles están en `docs/guide.pdf`.\n\n## 5. Ejecutar un programa\n\n1. Ensamblar (requiere Java y MARS 4.5; ruta configurable con `MARS_JAR`):\n   ```bash\n   python3 tools/assemble.py programs/hello.asm\n   ```\n   Genera `images/hello.hex` con `.text` desde `0x0000` y `.data` desde `0x2000`. Avisa si el código contiene instrucciones fuera de S-MIPS.\n2. Abrir `circuit/smips.circ` en Logisim Evolution 5.0.0.\n3. Entrar en `Memory` desde la simulación (pestaña **Simulate** del panel izquierdo → `Board` → `Memory`, o clic derecho sobre el bloque en la placa → **View Memory**), hacer clic derecho en la RAM → **Load Image…** y elegir `images/hello.hex`. No abrirla desde la lista de la pestaña **Design**: así se edita una copia aislada y la placa no ve la imagen.\n4. Volver a `Board`, pulsar **Reset** con la herramienta de la mano y activar los ticks del reloj.\n\n## 6. Regenerar el circuito\n\n`python3 tools/build.py` reconstruye `circuit/smips.circ` desde cero (necesita Java 21 y el JAR de Logisim 5.0.0 en `LOGISIM_JAR`). **Sobrescribe el archivo**: no lo ejecutes sobre una copia en la que ya se haya implementado la CPU.\n\n## 7. Comprobar la CPU\n\n```bash\nbash open.sh                                     # abre circuit/smips.circ (activa la simulación VHDL si hace falta)\npython3 tools/run_tests.py                       # programs/*.asm y tests/*.asm: TTY comparado con MARS\npython3 tools/run_tests.py programs/memory.asm # un solo programa\n```\n\n`run_tests.py` ensambla cada programa, obtiene la salida esperada con MARS, lo ejecuta en la placa y compara el texto del TTY. Requiere Java 21, MARS y Logisim 5.0.0 (`LOGISIM_JAR`, `MARS_JAR`); si la CPU tiene entidades VHDL, también Questa con licencia (`QUESTA_BIN`, `SALT_LICENSE_SERVER`), y entonces la simulación es más lenta.\n",
       "updated_at": "2026-11-23T23:37:16Z",
@@ -265,8 +244,8 @@
       "full_name": "VIRUSGAMING64/virusgaming64.github.io",
       "description": null,
       "url": "https://github.com/VIRUSGAMING64/virusgaming64.github.io",
-      "size_kb": 406,
-      "size_formatted": "406 KB",
+      "size_kb": 407,
+      "size_formatted": "407 KB",
       "languages": {
         "CSS": 51.26,
         "JavaScript": 40.06,
