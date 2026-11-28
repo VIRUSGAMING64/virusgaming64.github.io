@@ -1,19 +1,19 @@
 {
-  "last_updated": "2026-11-27T04:31:06.427278Z",
+  "last_updated": "2026-11-28T04:13:20.526614Z",
   "total_repositories": 14,
   "overall_languages": {
-    "Python": 40.64,
+    "Python": 40.53,
     "Go": 19.23,
-    "HTML": 10.56,
+    "HTML": 10.55,
     "CSS": 9.17,
     "C#": 7.14,
-    "Assembly": 4.62,
-    "JavaScript": 4.3,
+    "Assembly": 4.61,
+    "JavaScript": 4.36,
     "SCSS": 2.49,
-    "TypeScript": 0.81,
+    "TypeScript": 0.87,
     "Java": 0.77,
     "Dockerfile": 0.13,
-    "Shell": 0.11,
+    "Shell": 0.1,
     "C++": 0.04
   },
   "repositories": [
@@ -183,15 +183,15 @@
       "full_name": "VIRUSGAMING64/pydwarfs",
       "description": null,
       "url": "https://github.com/VIRUSGAMING64/pydwarfs",
-      "size_kb": 240,
-      "size_formatted": "240 KB",
+      "size_kb": 251,
+      "size_formatted": "251 KB",
       "languages": {
-        "Python": 73.02,
-        "TypeScript": 11.38,
-        "JavaScript": 11.27,
-        "HTML": 3.45,
-        "CSS": 0.76,
-        "Shell": 0.11
+        "Python": 71.49,
+        "TypeScript": 12.23,
+        "JavaScript": 12.09,
+        "HTML": 3.35,
+        "CSS": 0.74,
+        "Shell": 0.1
       },
       "readme": "# pydwarfs\n\nMotor de simulación inspirado en *Dwarf Fortress* escrito en Python. El proyecto cuenta con un intérprete de lenguaje de instintos propio, un cargador de datos del mundo y un servidor de visualización basado en WebSockets.\n\n## Módulos\n\n| Módulo | Descripción |\n| --- | --- |\n| `modules/interpreter/` | Lenguaje de instintos: lexer, AST, parser, memoria e intérprete. |\n| `modules/game/` | Carga de datos del mundo (terrains, objetos, mapas) y entidades. |\n| `gui/` | Servidor HTTP (Flask) y servidor de WebSockets. |\n| `src/` | Frontend compilado (JS, HTML, Tailwind). |\n\n## Requisitos\n\n- Python 3.10+\n- Dependencias: `pip install -r requirements.txt`\n- Para compilar el frontend (TypeScript): `npm install -g typescript`\n\n## Estructura del repositorio\n\n```text\npydwarfs/\n├── main.py                # Punto de entrada / Banco de pruebas\n├── requirements.txt       # Dependencias de Python\n├── gui/                   # Fuentes del servidor y cliente (TS)\n├── src/                   # Cliente frontend servido (JS)\n├── modules/               # Lógica del motor y lenguaje\n├── gamedata/              # Datos del juego (terrains, mapas, entidades)\n└── run.sh                 # Script de compilación frontend y ejecución\n```\n\n## Frontend\n\nEl frontend consiste en dos partes:\n1. **Fuentes:** `gui/src/` contiene los archivos TypeScript.\n2. **Servido:** `src/` contiene el JavaScript compilado y los archivos estáticos que el servidor Flask sirve en la raíz.\n\nPara compilar el frontend desde las fuentes:\n```bash\n./run.sh\n```\n\n## Ejecución\n\n`main.py` actúa como banco de pruebas. Asegúrese de haber creado los archivos de datos en `gamedata/` y un `codigotest.txt` antes de ejecutar:\n\n```bash\npython main.py\n```\n\n## Estado actual\nEl proyecto se encuentra en una etapa de prototipo. Consulte los comentarios en el código y la estructura para entender las limitaciones actuales de la implementación del intérprete y el servidor.\n",
       "updated_at": "2026-11-27T03:46:43Z",
@@ -227,8 +227,8 @@
       "full_name": "VIRUSGAMING64/VIRUSGAMING64",
       "description": null,
       "url": "https://github.com/VIRUSGAMING64/VIRUSGAMING64",
-      "size_kb": 1847,
-      "size_formatted": "1.8 MB",
+      "size_kb": 1851,
+      "size_formatted": "1.81 MB",
       "languages": {
         "Python": 100.0
       },
@@ -245,8 +245,8 @@
       "full_name": "VIRUSGAMING64/virusgaming64.github.io",
       "description": null,
       "url": "https://github.com/VIRUSGAMING64/virusgaming64.github.io",
-      "size_kb": 409,
-      "size_formatted": "409 KB",
+      "size_kb": 418,
+      "size_formatted": "418 KB",
       "languages": {
         "CSS": 51.26,
         "JavaScript": 40.06,
